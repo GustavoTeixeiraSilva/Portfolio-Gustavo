@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre | Gustavo Henrique</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-1: #020617;
+      --bg-2: #0f172a;
+      --bg-3: #111827;
+      --card: rgba(255, 255, 255, 0.05);
+      --border: rgba(255, 255, 255, 0.10);
+      --text: #ffffff;
+      --text-soft: #cbd5e1;
+      --muted: #94a3b8;
+      --primary: #00e5ff;
+      --secondary: #7c3aed;
+      --success: #22c55e;
+      --shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(0, 229, 255, 0.12), transparent 22%),
+        radial-gradient(circle at top right, rgba(124, 58, 237, 0.16), transparent 30%),
+        linear-gradient(135deg, var(--bg-1), var(--bg-2), var(--bg-3));
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .header {
+      width: 100%;
+      padding: 20px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.38);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--primary);
+      text-shadow: 0 0 18px rgba(0, 229, 255, 0.20);
+    }
+
+    .logo img {
+      width: 65px;
+      height: 65px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 6px rgba(0, 229, 255, 0.35));
+      flex-shrink: 0;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .logo-name {
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      color: var(--primary);
+    }
+
+    .logo-role {
+      font-size: 11px;
+      font-weight: 700;
+      color: #c4b5fd;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .nav {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      color: var(--text-soft);
+      font-weight: 600;
+      position: relative;
+      transition: 0.3s ease;
+      padding: 4px 0;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      color: var(--primary);
+    }
+
+    .nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transition: 0.3s ease;
+    }
+
+    .nav a:hover::after,
+    .nav a.active::after {
+      width: 100%;
+    }
+
+    .about-page {
+      padding: 90px 8%;
+    }
+
+    .hero {
+      max-width: 950px;
+      margin: 0 auto 60px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 229, 255, 0.28);
+      background: rgba(0, 229, 255, 0.08);
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 54px;
+      line-height: 1.1;
+      margin-bottom: 18px;
+      background: linear-gradient(90deg, #ffffff, #d8b4fe, #67e8f9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      color: var(--text-soft);
+      font-size: 18px;
+      line-height: 1.8;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .about-main {
+      max-width: 1200px;
+      margin: 0 auto 34px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .main-card,
+    .side-card,
+    .differential-card,
+    .goal-card,
+    .photo-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+      transition: 0.35s ease;
+    }
+
+    .main-card:hover,
+    .side-card:hover,
+    .differential-card:hover,
+    .goal-card:hover,
+    .photo-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(0, 229, 255, 0.35);
+      box-shadow: 0 18px 40px rgba(0, 229, 255, 0.12);
+    }
+
+    .main-card {
+      padding: 34px;
+    }
+
+    .main-card h2 {
+      font-size: 34px;
+      margin-bottom: 18px;
+    }
+
+    .main-card p {
+      color: var(--text-soft);
+      line-height: 1.9;
+      font-size: 16px;
+      margin-bottom: 16px;
+    }
+
+    .highlight {
+      color: #67e8f9;
+      font-weight: 700;
+    }
+
+    .side-column {
+      display: grid;
+      gap: 22px;
+    }
+
+    .photo-card {
+      padding: 28px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .photo-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0, 229, 255, 0.08), rgba(124, 58, 237, 0.10));
+      pointer-events: none;
+    }
+
+    .photo-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .photo-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 320px;
+      margin: 0 auto 22px;
+    }
+
+    .photo-wrap::before {
+      content: "";
+      position: absolute;
+      inset: -10px;
+      border-radius: 34px;
+      background: linear-gradient(135deg, rgba(0, 229, 255, 0.75), rgba(124, 58, 237, 0.75));
+      filter: blur(22px);
+      opacity: 0.55;
+      z-index: 0;
+    }
+
+    .photo-wrap::after {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      border-radius: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .profile-photo {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      border-radius: 28px;
+      border: 2px solid rgba(255, 255, 255, 0.14);
+      background: #0f172a;
+      box-shadow: 0 18px 34px rgba(0, 0, 0, 0.28);
+    }
+
+    .photo-info {
+      text-align: center;
+    }
+
+    .photo-info h3 {
+      font-size: 26px;
+      margin-bottom: 8px;
+    }
+
+    .photo-info p {
+      color: var(--text-soft);
+      line-height: 1.8;
+      font-size: 15px;
+      max-width: 320px;
+      margin: 0 auto 16px;
+    }
+
+    .mini-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .mini-badges span {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #dbe7f3;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .side-card {
+      padding: 24px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .side-icon {
+      width: 62px;
+      height: 62px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, rgba(0, 229, 255, 0.20), rgba(124, 58, 237, 0.22));
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      color: #e0f2fe;
+    }
+
+    .side-text h3 {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .side-text p {
+      color: var(--text-soft);
+      line-height: 1.8;
+      font-size: 15px;
+    }
+
+    .section-title {
+      max-width: 1200px;
+      margin: 0 auto 24px;
+    }
+
+    .section-title h2 {
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: var(--text-soft);
+      line-height: 1.8;
+      font-size: 16px;
+      max-width: 760px;
+    }
+
+    .differentials {
+      max-width: 1200px;
+      margin: 0 auto 34px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .differential-card {
+      padding: 28px;
+    }
+
+    .diff-icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 23px;
+      margin-bottom: 18px;
+      background: linear-gradient(135deg, rgba(0, 229, 255, 0.20), rgba(124, 58, 237, 0.22));
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      color: #e0f2fe;
+    }
+
+    .differential-card h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .differential-card p {
+      color: var(--text-soft);
+      line-height: 1.8;
+      font-size: 15px;
+    }
+
+    .goal-card {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px;
+      background: linear-gradient(135deg, rgba(0, 229, 255, 0.08), rgba(124, 58, 237, 0.10));
+      border: 1px solid rgba(255, 255, 255, 0.10);
+    }
+
+    .goal-card h2 {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .goal-card p {
+      color: var(--text-soft);
+      line-height: 1.9;
+      font-size: 16px;
+      max-width: 950px;
+    }
+
+    .footer-simple {
+      position: relative;
+      padding: 30px;
+      text-align: center;
+      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin-top: 60px;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .footer-simple p {
+      font-size: 14px;
+      letter-spacing: 0.5px;
+    }
+
+    .top-btn {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      transition: 0.3s ease;
+      box-shadow: 0 10px 24px rgba(0, 229, 255, 0.18);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px);
+      z-index: 1000;
+    }
+
+    .top-btn.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .top-btn:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 12px 28px rgba(0, 229, 255, 0.30);
+    }
+
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      background: #25D366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      color: white;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      transition: 0.3s;
+      z-index: 1000;
+    }
+
+    .whatsapp-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.35);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: 0.8s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1080px) {
+      .about-main {
+        grid-template-columns: 1fr;
+      }
+
+      .differentials {
+        grid-template-columns: 1fr;
+      }
+
+      .photo-wrap {
+        max-width: 280px;
+      }
+
+      .profile-photo {
+        height: 340px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        flex-direction: column;
+        gap: 14px;
+        padding-left: 5%;
+        padding-right: 5%;
+      }
+
+      .about-page {
+        padding-left: 5%;
+        padding-right: 5%;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .hero p,
+      .section-title p,
+      .goal-card p {
+        font-size: 16px;
+      }
+
+      .main-card h2,
+      .section-title h2,
+      .goal-card h2 {
+        font-size: 28px;
+      }
+
+      .logo img {
+        width: 54px;
+        height: 54px;
+      }
+
+      .logo-name {
+        font-size: 21px;
+      }
+
+      .logo-role {
+        font-size: 10px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .main-card,
+      .goal-card,
+      .differential-card,
+      .side-card,
+      .photo-card {
+        padding: 22px;
+      }
+
+      .profile-photo {
+        height: 300px;
+      }
+
+      .top-btn {
+        right: 16px;
+        bottom: 18px;
+        width: 46px;
+        height: 46px;
+      }
+
+      .whatsapp-btn {
+        width: 56px;
+        height: 56px;
+        font-size: 27px;
+        left: 18px;
+        bottom: 18px;
+      }
+
+      .logo img {
+        width: 46px;
+        height: 46px;
+      }
+
+      .logo-name {
+        font-size: 18px;
+      }
+
+      .logo-role {
+        font-size: 9px;
+        letter-spacing: 1.4px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="logo">
+      <img src="imagens/foto2.png" alt="Logo Gustavo Henrique">
+      <div class="logo-text">
+        <span class="logo-name">Gustavo Henrique</span>
+        <span class="logo-role">Full Stack Developer</span>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="sobre.html" class="active">Sobre</a>
+      <a href="projetos.html">Projetos</a>
+      <a href="contato.html">Contato</a>
+      <a href="servicos.html">Serviços</a>
+    </nav>
+  </header>
+
+  <main class="about-page">
+
+    <section class="hero reveal">
+      <div class="badge">
+        <i class="fa-solid fa-user"></i>
+        SOBRE MIM
+      </div>
+
+      <h1>Conheça mais sobre minha trajetória</h1>
+
+      <p>
+        Sou um desenvolvedor <strong>Full Stack Web</strong> apaixonado por tecnologia, focado em criar
+        <strong>sites modernos</strong>, <strong>sistemas web</strong> e <strong>APIs</strong> com visual profissional,
+        organização de código e foco em experiência do usuário.
+      </p>
+    </section>
+
+    <section class="about-main">
+
+      <div class="main-card reveal">
+        <h2>Minha trajetória</h2>
+
+        <p>
+          Sou <span class="highlight">técnico em Desenvolvimento de Sistemas</span> e atualmente curso
+          <span class="highlight">Sistemas de Informação</span>. Minha trajetória na tecnologia vem sendo construída
+          com estudo, prática e dedicação para evoluir cada vez mais como desenvolvedor.
+        </p>
+
+        <p>
+          Tenho grande interesse em atuar como <span class="highlight">Full Stack Web Developer</span>,
+          criando <span class="highlight">interfaces modernas</span>, <span class="highlight">sistemas web</span>,
+          <span class="highlight">APIs</span> e soluções digitais com aparência profissional e boa estrutura.
+        </p>
+
+        <p>
+          Para mim, não basta apenas funcionar. O projeto também precisa transmitir valor, confiança e organização.
+          Por isso, busco unir <span class="highlight">front-end</span>, <span class="highlight">back-end</span>,
+          identidade visual e experiência agradável em cada trabalho desenvolvido.
+        </p>
+
+        <p>
+          Meu objetivo é seguir crescendo na área de desenvolvimento, participando de projetos que me permitam aplicar
+          conhecimento técnico, criatividade e foco em resolver problemas reais através da tecnologia.
+        </p>
+      </div>
+
+      <div class="side-column">
+
+        <div class="photo-card reveal">
+          <div class="photo-wrap">
+            <img src="imagens/foto1.jpeg.jpeg" alt="Foto de Gustavo Henrique" class="profile-photo">
+          </div>
+
+          <div class="photo-info">
+            <h3>Gustavo Henrique</h3>
+            <p>
+              Desenvolvedor com foco em evolução constante, soluções Full Stack Web
+              e criação de projetos com aparência profissional.
+            </p>
+
+            <div class="mini-badges">
+              <span>Full Stack Web</span>
+              <span>APIs</span>
+              <span>Projetos Web</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="side-card reveal">
+          <div class="side-icon">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+
+          <div class="side-text">
+            <h3>Formação</h3>
+            <p>
+              Técnico em Desenvolvimento de Sistemas e estudante de Sistemas de Informação,
+              fortalecendo minha base técnica e minha visão de crescimento profissional.
+            </p>
+          </div>
+        </div>
+
+        <div class="side-card reveal">
+          <div class="side-icon">
+            <i class="fa-solid fa-code"></i>
+          </div>
+
+          <div class="side-text">
+            <h3>Foco atual</h3>
+            <p>
+              Desenvolvimento Full Stack Web, interfaces modernas, sistemas web,
+              APIs e soluções digitais com boa estrutura e apresentação visual.
+            </p>
+          </div>
+        </div>
+
+        <div class="side-card reveal">
+          <div class="side-icon">
+            <i class="fa-solid fa-bullseye"></i>
+          </div>
+
+          <div class="side-text">
+            <h3>Objetivo</h3>
+            <p>
+              Construir projetos cada vez mais completos, profissionais e bem estruturados,
+              evoluindo continuamente como desenvolvedor.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section-title reveal">
+      <h2>Por que me escolher ?!</h2>
+      <p>
+        Mais do que criar páginas, busco desenvolver soluções web que transmitam confiança,
+        organização, presença digital forte e uma experiência melhor para quem utiliza.
+      </p>
+    </section>
+
+    <section class="differentials">
+
+      <article class="differential-card reveal">
+        <div class="diff-icon">
+          <i class="fa-solid fa-palette"></i>
+        </div>
+
+        <h3>Front-End moderno</h3>
+        <p>
+          Tenho foco em criar interfaces com aparência tecnológica, boa responsividade
+          e apresentação profissional para causar uma ótima primeira impressão.
+        </p>
+      </article>
+
+      <article class="differential-card reveal">
+        <div class="diff-icon">
+          <i class="fa-solid fa-layer-group"></i>
+        </div>
+
+        <h3>Back-End organizado</h3>
+        <p>
+          Valorizo projetos com estrutura clara, lógica bem separada, APIs organizadas
+          e código pensado para evolução e manutenção.
+        </p>
+      </article>
+
+      <article class="differential-card reveal">
+        <div class="diff-icon">
+          <i class="fa-solid fa-mobile-screen-button"></i>
+        </div>
+
+        <h3>Experiência completa</h3>
+        <p>
+          Busco desenvolver páginas e sistemas que funcionem bem em computador e celular,
+          oferecendo melhor navegação, performance e usabilidade.
+        </p>
+      </article>
+
+    </section>
+
+    <section class="goal-card reveal">
+      <h2>Meu foco é evoluir e entregar cada vez mais</h2>
+      <p>
+        A cada projeto, procuro melhorar minha técnica, meu olhar visual e minha capacidade de transformar ideias
+        em soluções Full Stack Web bem estruturadas. Quero seguir crescendo na área, fortalecendo meu portfólio
+        e construindo uma trajetória sólida como desenvolvedor.
+      </p>
+    </section>
+
+  </main>
+
+  <footer class="footer-simple">
+    <p>© 2026 Gustavo Henrique — Todos os direitos reservados.</p>
+  </footer>
+
+  <button class="top-btn" id="topBtn" aria-label="Voltar ao topo">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <a href="https://wa.me/5531999999999?text=Olá%20Gustavo,%20gostaria%20de%20fazer%20um%20orçamento."
+     class="whatsapp-btn"
+     target="_blank"
+     title="Falar no WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <script>
+    const revealElements = document.querySelectorAll(".reveal");
+    const topBtn = document.getElementById("topBtn");
+
+    function revealOnScroll() {
+      const trigger = window.innerHeight * 0.88;
+
+      revealElements.forEach((element) => {
+        const top = element.getBoundingClientRect().top;
+
+        if (top < trigger) {
+          element.classList.add("show");
+        }
+      });
+
+      if (window.scrollY > 250) {
+        topBtn.classList.add("show");
+      } else {
+        topBtn.classList.remove("show");
+      }
+    }
+
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+
+    topBtn.addEventListener("click", scrollToTop);
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll();
+  </script>
+
+</body>
+</html>

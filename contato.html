@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contato | Gustavo Henrique</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-1: #020617;
+      --bg-2: #0f172a;
+      --bg-3: #111827;
+      --card: rgba(255, 255, 255, 0.05);
+      --border: rgba(255, 255, 255, 0.10);
+      --text: #ffffff;
+      --text-soft: #cbd5e1;
+      --muted: #94a3b8;
+      --primary: #00e5ff;
+      --secondary: #7c3aed;
+      --whatsapp: #25d366;
+      --linkedin: #0a66c2;
+      --github: #e5e7eb;
+      --workana: #8b5cf6;
+      --frellas: #06b6d4;
+      --shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(0, 229, 255, 0.12), transparent 22%),
+        radial-gradient(circle at top right, rgba(124, 58, 237, 0.16), transparent 30%),
+        linear-gradient(135deg, var(--bg-1), var(--bg-2), var(--bg-3));
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .header {
+      width: 100%;
+      padding: 20px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.38);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--primary);
+      letter-spacing: 0.5px;
+      text-shadow: 0 0 18px rgba(0, 229, 255, 0.20);
+    }
+
+    .logo img {
+      width: 65px;
+      height: 65px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 6px rgba(0, 229, 255, 0.35));
+      flex-shrink: 0;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .logo-subtitle {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+       color: #c4b5fd;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .nav {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      color: var(--text-soft);
+      font-weight: 600;
+      position: relative;
+      transition: 0.3s ease;
+      padding: 4px 0;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      color: var(--primary);
+    }
+
+    .nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transition: 0.3s ease;
+    }
+
+    .nav a:hover::after,
+    .nav a.active::after {
+      width: 100%;
+    }
+
+    .contact-page {
+      padding: 90px 8%;
+    }
+
+    .hero {
+      max-width: 920px;
+      margin: 0 auto 60px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 229, 255, 0.28);
+      background: rgba(0, 229, 255, 0.08);
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 54px;
+      line-height: 1.1;
+      margin-bottom: 18px;
+      background: linear-gradient(90deg, #ffffff, #d8b4fe, #67e8f9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      color: var(--text-soft);
+      font-size: 18px;
+      line-height: 1.8;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .cta-main {
+      max-width: 1200px;
+      margin: 0 auto 32px;
+      padding: 34px;
+      border-radius: 30px;
+      background: linear-gradient(135deg, rgba(37, 211, 102, 0.12), rgba(124, 58, 237, 0.12));
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .cta-text h2 {
+      font-size: 34px;
+      margin-bottom: 12px;
+    }
+
+    .cta-text p {
+      color: var(--text-soft);
+      line-height: 1.8;
+      max-width: 760px;
+      font-size: 16px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      flex-shrink: 0;
+    }
+
+    .btn {
+      padding: 15px 22px;
+      border-radius: 14px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: 0.3s ease;
+    }
+
+    .btn-whatsapp {
+      background: linear-gradient(90deg, #25d366, #16a34a);
+      color: #fff;
+      box-shadow: 0 12px 28px rgba(37, 211, 102, 0.18);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 30px rgba(0, 229, 255, 0.12);
+    }
+
+    .contact-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .contact-card {
+      position: relative;
+      padding: 28px 24px;
+      border-radius: 26px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(14px);
+      transition: 0.35s ease;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .contact-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: 0.35s ease;
+      pointer-events: none;
+    }
+
+    .contact-card:hover::before {
+      opacity: 1;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .contact-top,
+    .contact-bottom {
+      position: relative;
+      z-index: 1;
+    }
+
+    .icon-box {
+      width: 72px;
+      height: 72px;
+      border-radius: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.10);
+    }
+
+    .contact-card h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .contact-card p {
+      color: var(--text-soft);
+      line-height: 1.8;
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+
+    .contact-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .whatsapp-card {
+      border-color: rgba(37, 211, 102, 0.24);
+    }
+
+    .whatsapp-card::before {
+      background: linear-gradient(135deg, rgba(37, 211, 102, 0.10), rgba(22, 163, 74, 0.10));
+    }
+
+    .whatsapp-card:hover {
+      border-color: rgba(37, 211, 102, 0.45);
+      box-shadow: 0 18px 40px rgba(37, 211, 102, 0.14);
+    }
+
+    .whatsapp-card .icon-box {
+      background: linear-gradient(135deg, rgba(37, 211, 102, 0.25), rgba(22, 163, 74, 0.24));
+      color: #bbf7d0;
+    }
+
+    .whatsapp-card .contact-action {
+      color: #86efac;
+    }
+
+    .linkedin-card {
+      border-color: rgba(10, 102, 194, 0.22);
+    }
+
+    .linkedin-card::before {
+      background: linear-gradient(135deg, rgba(10, 102, 194, 0.10), rgba(0, 229, 255, 0.08));
+    }
+
+    .linkedin-card:hover {
+      border-color: rgba(10, 102, 194, 0.45);
+      box-shadow: 0 18px 40px rgba(10, 102, 194, 0.14);
+    }
+
+    .linkedin-card .icon-box {
+      background: linear-gradient(135deg, rgba(10, 102, 194, 0.24), rgba(0, 229, 255, 0.18));
+      color: #bae6fd;
+    }
+
+    .linkedin-card .contact-action {
+      color: #7dd3fc;
+    }
+
+    .github-card {
+      border-color: rgba(255, 255, 255, 0.14);
+    }
+
+    .github-card::before {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(124, 58, 237, 0.08));
+    }
+
+    .github-card:hover {
+      border-color: rgba(255, 255, 255, 0.28);
+      box-shadow: 0 18px 40px rgba(255, 255, 255, 0.08);
+    }
+
+    .github-card .icon-box {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(124, 58, 237, 0.18));
+      color: #f8fafc;
+    }
+
+    .github-card .contact-action {
+      color: #e2e8f0;
+    }
+
+    .workana-card {
+      border-color: rgba(139, 92, 246, 0.22);
+    }
+
+    .workana-card::before {
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.10), rgba(168, 85, 247, 0.10));
+    }
+
+    .workana-card:hover {
+      border-color: rgba(139, 92, 246, 0.45);
+      box-shadow: 0 18px 40px rgba(139, 92, 246, 0.14);
+    }
+
+    .workana-card .icon-box {
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.22), rgba(168, 85, 247, 0.18));
+      color: #e9d5ff;
+    }
+
+    .workana-card .contact-action {
+      color: #d8b4fe;
+    }
+
+    .frellas-card {
+      border-color: rgba(6, 182, 212, 0.22);
+    }
+
+    .frellas-card::before {
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.10), rgba(124, 58, 237, 0.10));
+    }
+
+    .frellas-card:hover {
+      border-color: rgba(6, 182, 212, 0.45);
+      box-shadow: 0 18px 40px rgba(6, 182, 212, 0.14);
+    }
+
+    .frellas-card .icon-box {
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.22), rgba(124, 58, 237, 0.18));
+      color: #bae6fd;
+    }
+
+    .frellas-card .contact-action {
+      color: #67e8f9;
+    }
+
+    .email-card {
+      border-color: rgba(0, 229, 255, 0.20);
+    }
+
+    .email-card::before {
+      background: linear-gradient(135deg, rgba(0, 229, 255, 0.10), rgba(59, 130, 246, 0.08));
+    }
+
+    .email-card:hover {
+      border-color: rgba(0, 229, 255, 0.40);
+      box-shadow: 0 18px 40px rgba(0, 229, 255, 0.14);
+    }
+
+    .email-card .icon-box {
+      background: linear-gradient(135deg, rgba(0, 229, 255, 0.22), rgba(59, 130, 246, 0.18));
+      color: #bae6fd;
+    }
+
+    .email-card .contact-action {
+      color: #67e8f9;
+    }
+
+    .extra-info {
+      max-width: 1200px;
+      margin: 34px auto 0;
+      padding: 30px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(0, 229, 255, 0.08), rgba(124, 58, 237, 0.10));
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadow);
+    }
+
+    .extra-info h2 {
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+
+    .extra-info p {
+      color: var(--text-soft);
+      line-height: 1.8;
+      font-size: 16px;
+      max-width: 900px;
+    }
+
+    .footer-simple {
+      position: relative;
+      padding: 30px;
+      text-align: center;
+      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin-top: 60px;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .footer-simple p {
+      font-size: 14px;
+      letter-spacing: 0.5px;
+    }
+
+    .floating-whatsapp {
+      position: fixed;
+      left: 20px;
+      bottom: 20px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #25d366;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.28);
+      z-index: 2000;
+      transition: 0.3s ease;
+    }
+
+    .floating-whatsapp:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 14px 30px rgba(37, 211, 102, 0.35);
+    }
+
+    .scroll-top {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 52px;
+      height: 52px;
+      border: none;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #00e5ff, #7c3aed);
+      color: #fff;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.28);
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px);
+      transition: 0.3s ease;
+    }
+
+    .scroll-top.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .scroll-top:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 30px rgba(0, 229, 255, 0.25);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: 0.8s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1080px) {
+      .cta-main {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        flex-direction: column;
+        gap: 14px;
+        padding-left: 5%;
+        padding-right: 5%;
+      }
+
+      .contact-page {
+        padding-left: 5%;
+        padding-right: 5%;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .hero p,
+      .cta-text p,
+      .extra-info p {
+        font-size: 16px;
+      }
+
+      .cta-text h2,
+      .extra-info h2 {
+        font-size: 28px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .floating-whatsapp {
+        left: 15px;
+        bottom: 15px;
+        width: 52px;
+        height: 52px;
+        font-size: 26px;
+      }
+
+      .scroll-top {
+        right: 15px;
+        bottom: 15px;
+        width: 48px;
+        height: 48px;
+        font-size: 18px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .cta-main,
+      .extra-info {
+        padding: 24px 20px;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .logo {
+        font-size: 20px;
+      }
+
+      .logo img {
+        width: 42px;
+        height: 42px;
+      }
+
+      .logo-subtitle {
+        font-size: 9px;
+        letter-spacing: 1.2px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="logo">
+      <img src="imagens/foto2.png" alt="Logo Gustavo Henrique">
+      <div class="logo-text">
+        <span>Gustavo Henrique</span>
+        <span class="logo-subtitle">Full Stack Developer</span>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="projetos.html">Projetos</a>
+      <a href="contato.html" class="active">Contato</a>
+      <a href="servicos.html">Serviços</a>
+    </nav>
+  </header>
+
+  <main class="contact-page">
+
+    <section class="hero reveal">
+      <div class="badge">
+        <i class="fa-solid fa-paper-plane"></i>
+        CONTATO FULL STACK WEB
+      </div>
+
+      <h1>Vamos conversar sobre seu projeto</h1>
+
+      <p>
+        Estou disponível para criação de <strong>sites modernos</strong>, <strong>portfólios</strong>,
+        <strong>sistemas web</strong>, <strong>APIs</strong> e soluções <strong>Full Stack Web</strong>
+        com visual profissional, boa estrutura e foco em experiência do usuário.
+      </p>
+    </section>
+
+    <section class="cta-main reveal">
+      <div class="cta-text">
+        <h2>Atendimento rápido para orçamento</h2>
+        <p>
+          Clique no botão do WhatsApp para abrir uma conversa comigo com uma mensagem pronta.
+          Assim consigo entender melhor sua ideia, seu objetivo e como transformar isso em uma solução web profissional.
+        </p>
+      </div>
+
+      <div class="cta-buttons">
+        <a href="https://wa.me/5531986170870?text=Ol%C3%A1%20Gustavo%2C%20gostaria%20de%20fazer%20um%20or%C3%A7amento." target="_blank" class="btn btn-whatsapp">
+          <i class="fa-brands fa-whatsapp"></i>
+          Pedir orçamento no WhatsApp
+        </a>
+
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=gustavohenrique0414@gmail.com&su=Orçamento%20de%20projeto&body=Olá%20Gustavo,%20gostaria%20de%20fazer%20um%20orçamento." target="_blank" class="btn btn-secondary">
+  <i class="fa-solid fa-envelope"></i>
+  Enviar e-mail
+</a>
+      </div>
+    </section>
+
+    <section class="contact-grid">
+
+      <a href="https://wa.me/5531986170870?text=Ol%C3%A1%20Gustavo%2C%20gostaria%20de%20fazer%20um%20or%C3%A7amento." target="_blank" class="contact-card whatsapp-card reveal">
+        <div class="contact-top">
+          <div class="icon-box">
+            <i class="fa-brands fa-whatsapp"></i>
+          </div>
+
+          <h3>WhatsApp</h3>
+          <p>
+            Canal principal para orçamento, dúvidas rápidas e primeiro contato sobre sites, sistemas web e soluções Full Stack.
+          </p>
+        </div>
+
+        <div class="contact-bottom">
+          <span class="contact-action">
+            Abrir conversa agora
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </span>
+        </div>
+      </a>
+
+      <a href="https://www.linkedin.com/in/gustavoteixeiratech/" target="_blank" class="contact-card linkedin-card reveal">
+        <div class="contact-top">
+          <div class="icon-box">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </div>
+
+          <h3>LinkedIn</h3>
+          <p>
+            Veja meu perfil profissional, minha formação, trajetória e conexões voltadas para desenvolvimento Full Stack Web e tecnologia.
+          </p>
+        </div>
+
+        <div class="contact-bottom">
+          <span class="contact-action">
+            Ver perfil profissional
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </span>
+        </div>
+      </a>
+
+      <a href="https://github.com/GustavoTeixeiraSilva" target="_blank" class="contact-card github-card reveal">
+        <div class="contact-top">
+          <div class="icon-box">
+            <i class="fa-brands fa-github"></i>
+          </div>
+
+          <h3>GitHub</h3>
+          <p>
+            Confira meus códigos, repositórios e projetos com foco em organização, APIs, aplicações web e evolução técnica.
+          </p>
+        </div>
+
+        <div class="contact-bottom">
+          <span class="contact-action">
+            Explorar projetos
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </span>
+        </div>
+      </a>
+
+      <a href="http://workana.com/freelancer/3d5418a25dabf62c7635176735c10720" target="_blank" class="contact-card workana-card reveal">
+        <div class="contact-top">
+          <div class="icon-box">
+            <i class="fa-solid fa-briefcase"></i>
+          </div>
+
+          <h3>Workana</h3>
+          <p>
+            Acesse meu perfil freelancer para acompanhar minha apresentação profissional e oportunidades relacionadas a projetos web.
+          </p>
+        </div>
+
+        <div class="contact-bottom">
+          <span class="contact-action">
+            Abrir perfil Workana
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </span>
+        </div>
+      </a>
+
+      <a href="https://www.99freelas.com.br/user/GustavoDevOrbit" target="_blank" class="contact-card frellas-card reveal">
+        <div class="contact-top">
+          <div class="icon-box">
+            <i class="fa-solid fa-code"></i>
+          </div>
+
+          <h3>Frellas99</h3>
+          <p>
+            Acesse meu perfil freelancer para conhecer melhor meus serviços, minha apresentação e minha atuação em projetos digitais.
+          </p>
+        </div>
+
+        <div class="contact-bottom">
+          <span class="contact-action">
+            Abrir perfil Frellas99
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </span>
+        </div>
+      </a>
+
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=gustavohenrique0414@gmail.com&su=Orçamento%20de%20projeto&body=Olá%20Gustavo,%20gostaria%20de%20fazer%20um%20orçamento." target="_blank" class="contact-card email-card reveal">
+        <div class="contact-top">
+          <div class="icon-box">
+            <i class="fa-solid fa-envelope"></i>
+          </div>
+
+          <h3>E-mail</h3>
+          <p>
+            Canal ideal para contatos formais, propostas detalhadas, parcerias, oportunidades e envio de informações mais completas.
+          </p>
+        </div>
+
+        <div class="contact-bottom">
+          <span class="contact-action">
+            Enviar e-mail
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </span>
+        </div>
+      </a>
+
+    </section>
+
+    <section class="extra-info reveal">
+      <h2>Contato simples, rápido e profissional</h2>
+      <p>
+        Esta área foi pensada para facilitar seu atendimento. O WhatsApp funciona como canal principal para orçamento,
+        enquanto LinkedIn, GitHub, Workana, Frellas99 e e-mail fortalecem minha presença profissional e digital como
+        <strong>Full Stack Web Developer</strong>.
+      </p>
+    </section>
+
+  </main>
+
+  <footer class="footer-simple">
+    <p>© 2026 Gustavo Henrique — Todos os direitos reservados.</p>
+  </footer>
+
+  <a href="https://wa.me/5531986170870?text=Olá%20Gustavo,%20gostaria%20de%20fazer%20um%20orçamento." class="floating-whatsapp" target="_blank" aria-label="WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <button class="scroll-top" id="scrollTopBtn" aria-label="Voltar ao topo">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script>
+    const revealElements = document.querySelectorAll(".reveal");
+    const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+    function revealOnScroll() {
+      const trigger = window.innerHeight * 0.88;
+
+      revealElements.forEach((element) => {
+        const top = element.getBoundingClientRect().top;
+
+        if (top < trigger) {
+          element.classList.add("show");
+        }
+      });
+
+      if (window.scrollY > 250) {
+        scrollTopBtn.classList.add("show");
+      } else {
+        scrollTopBtn.classList.remove("show");
+      }
+    }
+
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll();
+
+    scrollTopBtn.addEventListener("click", function () {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  </script>
+
+</body>
+</html>

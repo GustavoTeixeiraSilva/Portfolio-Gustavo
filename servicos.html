@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serviços | Gustavo Henrique</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-1: #020617;
+      --bg-2: #0f172a;
+      --bg-3: #111827;
+      --card: rgba(255, 255, 255, 0.05);
+      --card-2: rgba(255, 255, 255, 0.08);
+      --border: rgba(255, 255, 255, 0.10);
+      --text: #ffffff;
+      --text-soft: #cbd5e1;
+      --muted: #94a3b8;
+      --primary: #00e5ff;
+      --secondary: #7c3aed;
+      --green: #22c55e;
+      --shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(0, 229, 255, 0.12), transparent 22%),
+        radial-gradient(circle at top right, rgba(124, 58, 237, 0.16), transparent 30%),
+        linear-gradient(135deg, var(--bg-1), var(--bg-2), var(--bg-3));
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .header {
+      width: 100%;
+      padding: 20px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.38);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--primary);
+      text-shadow: 0 0 18px rgba(0, 229, 255, 0.20);
+    }
+
+    .logo img {
+      width: 65px;
+      height: 65px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 6px rgba(0, 229, 255, 0.35));
+      flex-shrink: 0;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .logo-name {
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      color: var(--primary);
+    }
+
+    .logo-role {
+      font-size: 11px;
+      font-weight: 700;
+      color: #c4b5fd;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .nav {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      color: var(--text-soft);
+      font-weight: 600;
+      position: relative;
+      transition: 0.3s ease;
+      padding: 4px 0;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      color: var(--primary);
+    }
+
+    .nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transition: 0.3s ease;
+    }
+
+    .nav a:hover::after,
+    .nav a.active::after {
+      width: 100%;
+    }
+
+    .services-page {
+      padding: 90px 8%;
+    }
+
+    .hero {
+      max-width: 950px;
+      margin: 0 auto 60px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 229, 255, 0.28);
+      background: rgba(0, 229, 255, 0.08);
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 56px;
+      line-height: 1.08;
+      margin-bottom: 18px;
+      background: linear-gradient(90deg, #ffffff, #d8b4fe, #67e8f9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      color: var(--text-soft);
+      font-size: 18px;
+      line-height: 1.8;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .featured-offer {
+      max-width: 1200px;
+      margin: 0 auto 34px;
+      padding: 34px;
+      border-radius: 30px;
+      background: linear-gradient(135deg, rgba(0, 229, 255, 0.10), rgba(124, 58, 237, 0.12));
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .featured-text h2 {
+      font-size: 36px;
+      margin-bottom: 14px;
+    }
+
+    .featured-text p {
+      color: var(--text-soft);
+      line-height: 1.9;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .featured-points {
+      display: grid;
+      gap: 12px;
+    }
+
+    .featured-points div {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #dbe7f3;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .featured-points i {
+      color: var(--primary);
+      font-size: 14px;
+    }
+
+    .featured-price {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      border-radius: 26px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.16);
+    }
+
+    .featured-price .small {
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .featured-price h3 {
+      font-size: 24px;
+      margin-bottom: 14px;
+    }
+
+    .featured-price .price {
+      font-size: 48px;
+      font-weight: 900;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .featured-price .price span {
+      font-size: 16px;
+      color: var(--text-soft);
+      font-weight: 600;
+    }
+
+    .featured-price p {
+      color: var(--text-soft);
+      line-height: 1.7;
+      margin-bottom: 22px;
+      font-size: 15px;
+    }
+
+    .btn {
+      padding: 15px 22px;
+      border-radius: 14px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #25d366, #16a34a);
+      color: #fff;
+      box-shadow: 0 12px 28px rgba(37, 211, 102, 0.18);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 30px rgba(0, 229, 255, 0.12);
+    }
+
+    .section-title {
+      max-width: 1200px;
+      margin: 0 auto 28px;
+      text-align: center;
+    }
+
+    .section-title h2 {
+      font-size: 38px;
+      margin-bottom: 12px;
+    }
+
+    .section-title p {
+      color: var(--text-soft);
+      line-height: 1.8;
+      font-size: 16px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .services-grid {
+      max-width: 1200px;
+      margin: 0 auto 34px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .service-card {
+      position: relative;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      transition: 0.35s ease;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0, 229, 255, 0.06), rgba(124, 58, 237, 0.08));
+      opacity: 0;
+      transition: 0.35s ease;
+      pointer-events: none;
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(0, 229, 255, 0.35);
+      box-shadow: 0 18px 40px rgba(0, 229, 255, 0.12);
+    }
+
+    .service-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-icon {
+      width: 68px;
+      height: 68px;
+      border-radius: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin-bottom: 18px;
+      background: linear-gradient(135deg, rgba(0, 229, 255, 0.20), rgba(124, 58, 237, 0.22));
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      color: #e0f2fe;
+    }
+
+    .service-card h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      color: var(--text-soft);
+      line-height: 1.8;
+      font-size: 15px;
+      margin-bottom: 18px;
+      min-height: 108px;
+    }
+
+    .service-features {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .service-features div {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #dbe7f3;
+      font-size: 14px;
+    }
+
+    .service-features i {
+      color: var(--primary);
+      font-size: 13px;
+    }
+
+    .price-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      gap: 12px;
+    }
+
+    .price-value {
+      font-size: 30px;
+      font-weight: 900;
+      color: #ffffff;
+    }
+
+    .price-value span {
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 600;
+      display: block;
+      margin-top: 2px;
+    }
+
+    .mini-btn {
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      color: #fff;
+      font-weight: 700;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      transition: 0.3s ease;
+    }
+
+    .mini-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px rgba(0, 229, 255, 0.12);
+    }
+
+    .advantages {
+      max-width: 1200px;
+      margin: 0 auto 34px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .adv-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 24px 20px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: 0.35s ease;
+    }
+
+    .adv-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(0, 229, 255, 0.35);
+      box-shadow: 0 16px 34px rgba(0, 229, 255, 0.10);
+    }
+
+    .adv-card i {
+      font-size: 28px;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    .adv-card h3 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .adv-card p {
+      color: var(--text-soft);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .final-cta {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 34px;
+      border-radius: 30px;
+      background: linear-gradient(135deg, rgba(37, 211, 102, 0.10), rgba(124, 58, 237, 0.10));
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .final-cta-text h2 {
+      font-size: 34px;
+      margin-bottom: 12px;
+    }
+
+    .final-cta-text p {
+      color: var(--text-soft);
+      line-height: 1.8;
+      font-size: 16px;
+      max-width: 760px;
+    }
+
+    .final-cta-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      flex-shrink: 0;
+    }
+
+    .footer-simple {
+      position: relative;
+      padding: 30px;
+      text-align: center;
+      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin-top: 60px;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .footer-simple p {
+      font-size: 14px;
+      letter-spacing: 0.5px;
+    }
+
+    .floating-whatsapp {
+      position: fixed;
+      left: 20px;
+      bottom: 20px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #25d366;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.28);
+      z-index: 2000;
+      transition: 0.3s ease;
+    }
+
+    .floating-whatsapp:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 14px 30px rgba(37, 211, 102, 0.35);
+    }
+
+    .scroll-top {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 52px;
+      height: 52px;
+      border: none;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #00e5ff, #7c3aed);
+      color: #fff;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.28);
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px);
+      transition: 0.3s ease;
+    }
+
+    .scroll-top.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .scroll-top:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 30px rgba(0, 229, 255, 0.25);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: 0.8s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1100px) {
+      .featured-offer,
+      .final-cta {
+        grid-template-columns: 1fr;
+        display: grid;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .advantages {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        flex-direction: column;
+        gap: 14px;
+        padding-left: 5%;
+        padding-right: 5%;
+      }
+
+      .services-page {
+        padding-left: 5%;
+        padding-right: 5%;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .hero p,
+      .featured-text p,
+      .featured-price p,
+      .section-title p,
+      .final-cta-text p {
+        font-size: 16px;
+      }
+
+      .featured-text h2,
+      .section-title h2,
+      .final-cta-text h2 {
+        font-size: 28px;
+      }
+
+      .services-grid,
+      .advantages {
+        grid-template-columns: 1fr;
+      }
+
+      .floating-whatsapp {
+        left: 15px;
+        bottom: 15px;
+        width: 52px;
+        height: 52px;
+        font-size: 26px;
+      }
+
+      .scroll-top {
+        right: 15px;
+        bottom: 15px;
+        width: 48px;
+        height: 48px;
+        font-size: 18px;
+      }
+
+      .logo img {
+        width: 54px;
+        height: 54px;
+      }
+
+      .logo-name {
+        font-size: 21px;
+      }
+
+      .logo-role {
+        font-size: 10px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .featured-offer,
+      .final-cta,
+      .service-card {
+        padding: 22px;
+      }
+
+      .price-box,
+      .final-cta-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn,
+      .mini-btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .featured-price .price {
+        font-size: 38px;
+      }
+
+      .logo img {
+        width: 46px;
+        height: 46px;
+      }
+
+      .logo-name {
+        font-size: 18px;
+      }
+
+      .logo-role {
+        font-size: 9px;
+        letter-spacing: 1.4px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="logo">
+      <img src="imagens/foto2.png" alt="Logo Gustavo Henrique">
+      <div class="logo-text">
+        <span class="logo-name">Gustavo Henrique</span>
+        <span class="logo-role">Full Stack Developer</span>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="projetos.html">Projetos</a>
+      <a href="servicos.html" class="active">Serviços</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+  </header>
+
+  <main class="services-page">
+
+    <section class="hero reveal">
+      <div class="badge">
+        <i class="fa-solid fa-briefcase"></i>
+        SERVIÇOS FULL STACK WEB
+      </div>
+
+      <h1>Criação de sites, sistemas web e soluções digitais</h1>
+
+      <p>
+        Desenvolvo <strong>sites modernos</strong>, <strong>portfólios</strong>, <strong>landing pages</strong>,
+        <strong>sistemas web</strong> e <strong>soluções Full Stack Web</strong> com visual profissional,
+        boa estrutura e foco em presença digital e experiência do usuário.
+      </p>
+    </section>
+
+    <section class="featured-offer reveal">
+      <div class="featured-text">
+        <h2>Serviço em destaque: Landing Page Premium</h2>
+
+        <p>
+          Uma landing page é ideal para divulgar um serviço, produto ou negócio de forma clara,
+          moderna e estratégica. É uma solução forte para conversão, apresentação profissional
+          e presença digital.
+        </p>
+
+        <div class="featured-points">
+          <div>
+            <i class="fa-solid fa-check"></i>
+            Design moderno e responsivo
+          </div>
+          <div>
+            <i class="fa-solid fa-check"></i>
+            Estrutura pensada para conversão
+          </div>
+          <div>
+            <i class="fa-solid fa-check"></i>
+            Botões de contato e ação
+          </div>
+          <div>
+            <i class="fa-solid fa-check"></i>
+            Visual premium para transmitir credibilidade
+          </div>
+        </div>
+      </div>
+
+      <div class="featured-price">
+        <span class="small">SERVIÇO MAIS PEDIDO</span>
+        <h3>Landing Page Premium</h3>
+        <div class="price">R$ 397 <span>a partir de</span></div>
+        <p>
+          Ideal para negócios, profissionais, divulgação de serviços e páginas de apresentação com foco em resultado.
+        </p>
+
+        <a href="https://wa.me/5531986170870?text=Olá%20Gustavo,%20gostaria%20de%20solicitar%20um%20orçamento%20para%20uma%20landing%20page." target="_blank" class="btn btn-primary">
+          <i class="fa-brands fa-whatsapp"></i>
+          Solicitar orçamento
+        </a>
+      </div>
+    </section>
+
+    <section class="section-title reveal">
+      <h2>Serviços que eu ofereço</h2>
+      <p>
+        Cada serviço foi pensado para atender profissionais, marcas e negócios que buscam
+        presença online forte, apresentação profissional e soluções web bem estruturadas.
+      </p>
+    </section>
+
+    <section class="services-grid">
+
+      <article class="service-card reveal">
+        <div class="service-icon">
+          <i class="fa-solid fa-bullhorn"></i>
+        </div>
+
+        <h3>Landing Page</h3>
+
+        <p>
+          Página focada em apresentação, divulgação e conversão. Ideal para produtos, serviços, campanhas e presença digital estratégica.
+        </p>
+
+        <div class="service-features">
+          <div><i class="fa-solid fa-check"></i> Layout moderno</div>
+          <div><i class="fa-solid fa-check"></i> Responsivo</div>
+          <div><i class="fa-solid fa-check"></i> Botões de ação</div>
+        </div>
+
+        <div class="price-box">
+          <div class="price-value">
+            R$ 397
+            <span>a partir de</span>
+          </div>
+
+          <a href="https://wa.me/5531986170870?text=Olá%20Gustavo,%20gostaria%20de%20um%20orçamento%20para%20landing%20page." target="_blank" class="mini-btn">
+            <i class="fa-brands fa-whatsapp"></i>
+            Orçamento
+          </a>
+        </div>
+      </article>
+
+      <article class="service-card reveal">
+        <div class="service-icon">
+          <i class="fa-solid fa-globe"></i>
+        </div>
+
+        <h3>Site Institucional</h3>
+
+        <p>
+          Site profissional para empresas, negócios e profissionais apresentarem serviços, informações, contatos e autoridade online.
+        </p>
+
+        <div class="service-features">
+          <div><i class="fa-solid fa-check"></i> Páginas organizadas</div>
+          <div><i class="fa-solid fa-check"></i> Visual profissional</div>
+          <div><i class="fa-solid fa-check"></i> Estrutura responsiva</div>
+        </div>
+
+        <div class="price-box">
+          <div class="price-value">
+            R$ 697
+            <span>a partir de</span>
+          </div>
+
+          <a href="https://wa.me/5531986170870?text=Olá%20Gustavo,%20gostaria%20de%20um%20orçamento%20para%20site%20institucional." target="_blank" class="mini-btn">
+            <i class="fa-brands fa-whatsapp"></i>
+            Orçamento
+          </a>
+        </div>
+      </article>
+
+      <article class="service-card reveal">
+        <div class="service-icon">
+          <i class="fa-solid fa-user"></i>
+        </div>
+
+        <h3>Portfólio Profissional</h3>
+
+        <p>
+          Criação de portfólios modernos para desenvolvedores, designers, freelancers e profissionais que desejam se apresentar melhor.
+        </p>
+
+        <div class="service-features">
+          <div><i class="fa-solid fa-check"></i> Identidade visual forte</div>
+          <div><i class="fa-solid fa-check"></i> Projetos e contato</div>
+          <div><i class="fa-solid fa-check"></i> Estrutura personalizada</div>
+        </div>
+
+        <div class="price-box">
+          <div class="price-value">
+            R$ 497
+            <span>a partir de</span>
+          </div>
+
+          <a href="https://wa.me/5531986170870?text=Olá%20Gustavo,%20gostaria%20de%20um%20orçamento%20para%20portfólio%20profissional." target="_blank" class="mini-btn">
+            <i class="fa-brands fa-whatsapp"></i>
+            Orçamento
+          </a>
+        </div>
+      </article>
+
+      <article class="service-card reveal">
+        <div class="service-icon">
+          <i class="fa-solid fa-store"></i>
+        </div>
+
+        <h3>Página para Negócio</h3>
+
+        <p>
+          Solução ideal para lojas, restaurantes, lanchonetes, prestadores de serviço e pequenos negócios que buscam presença digital forte.
+        </p>
+
+        <div class="service-features">
+          <div><i class="fa-solid fa-check"></i> Foco em apresentação</div>
+          <div><i class="fa-solid fa-check"></i> Botão de WhatsApp</div>
+          <div><i class="fa-solid fa-check"></i> Visual chamativo</div>
+        </div>
+
+        <div class="price-box">
+          <div class="price-value">
+            R$ 597
+            <span>a partir de</span>
+          </div>
+
+          <a href="https://wa.me/5531986170870?text=Olá%20Gustavo,%20gostaria%20de%20um%20orçamento%20para%20uma%20página%20de%20negócio." target="_blank" class="mini-btn">
+            <i class="fa-brands fa-whatsapp"></i>
+            Orçamento
+          </a>
+        </div>
+      </article>
+
+      <article class="service-card reveal">
+        <div class="service-icon">
+          <i class="fa-solid fa-mobile-screen"></i>
+        </div>
+
+        <h3>Site Responsivo</h3>
+
+        <p>
+          Ajuste ou criação de páginas pensadas para funcionar bem em celular, tablet e computador, com navegação mais fluida e visual atualizado.
+        </p>
+
+        <div class="service-features">
+          <div><i class="fa-solid fa-check"></i> Melhor experiência mobile</div>
+          <div><i class="fa-solid fa-check"></i> Layout adaptado</div>
+          <div><i class="fa-solid fa-check"></i> Visual mais moderno</div>
+        </div>
+
+        <div class="price-box">
+          <div class="price-value">
+            R$ 297
+            <span>a partir de</span>
+          </div>
+
+          <a href="https://wa.me/5531986170870?text=Olá%20Gustavo,%20gostaria%20de%20um%20orçamento%20para%20site%20responsivo." target="_blank" class="mini-btn">
+            <i class="fa-brands fa-whatsapp"></i>
+            Orçamento
+          </a>
+        </div>
+      </article>
+
+      <article class="service-card reveal">
+        <div class="service-icon">
+          <i class="fa-solid fa-code"></i>
+        </div>
+
+        <h3>Sistema Web Personalizado</h3>
+
+        <p>
+          Solução para quem precisa de algo mais específico, com estrutura personalizada, lógica própria, interface web e foco em necessidade real.
+        </p>
+
+        <div class="service-features">
+          <div><i class="fa-solid fa-check"></i> Estrutura sob medida</div>
+          <div><i class="fa-solid fa-check"></i> Mais flexibilidade</div>
+          <div><i class="fa-solid fa-check"></i> Solução Full Stack Web</div>
+        </div>
+
+        <div class="price-box">
+          <div class="price-value">
+            Sob consulta
+            <span>valor personalizado</span>
+          </div>
+
+          <a href="https://wa.me/5531986170870?text=Olá%20Gustavo,%20gostaria%20de%20fazer%20um%20orçamento%20para%20um%20sistema%20web%20personalizado." target="_blank" class="mini-btn">
+            <i class="fa-brands fa-whatsapp"></i>
+            Orçamento
+          </a>
+        </div>
+      </article>
+
+    </section>
+
+    <section class="section-title reveal">
+      <h2>O que você recebe</h2>
+      <p>
+        Mais do que um site bonito, a proposta é entregar uma solução com apresentação forte,
+        estrutura organizada e valor real para sua presença digital ou para o seu negócio.
+      </p>
+    </section>
+
+    <section class="advantages">
+      <div class="adv-card reveal">
+        <i class="fa-solid fa-palette"></i>
+        <h3>Visual moderno</h3>
+        <p>Design tecnológico, chamativo e profissional para causar ótima impressão.</p>
+      </div>
+
+      <div class="adv-card reveal">
+        <i class="fa-solid fa-mobile-screen-button"></i>
+        <h3>Responsivo</h3>
+        <p>Funcionando bem em celular, tablet e computador com navegação fluida.</p>
+      </div>
+
+      <div class="adv-card reveal">
+        <i class="fa-solid fa-layer-group"></i>
+        <h3>Estrutura organizada</h3>
+        <p>Layout, conteúdo e lógica pensados de forma clara e bem montada.</p>
+      </div>
+
+      <div class="adv-card reveal">
+        <i class="fa-solid fa-rocket"></i>
+        <h3>Presença digital</h3>
+        <p>Projetos pensados para fortalecer sua imagem e sua apresentação online.</p>
+      </div>
+    </section>
+
+    <section class="final-cta reveal">
+      <div class="final-cta-text">
+        <h2>Quer tirar sua ideia do papel?</h2>
+        <p>
+          Me chama no WhatsApp e vamos conversar sobre o seu projeto. Posso te ajudar a criar um site,
+          portfólio, landing page ou solução Full Stack Web com visual moderno e boa apresentação profissional.
+        </p>
+      </div>
+
+      <div class="final-cta-buttons">
+        <a href="https://wa.me/5531986170870?text=Olá%20Gustavo,%20gostaria%20de%20fazer%20um%20orçamento." target="_blank" class="btn btn-primary">
+          <i class="fa-brands fa-whatsapp"></i>
+          Solicitar orçamento
+        </a>
+
+        <a href="contato.html" class="btn btn-secondary">
+          <i class="fa-solid fa-paper-plane"></i>
+          Ver contato completo
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer-simple">
+    <p>© 2026 Gustavo Henrique — Todos os direitos reservados.</p>
+  </footer>
+
+  <a href="https://wa.me/5531986170870?text=Olá%20Gustavo,%20gostaria%20de%20fazer%20um%20orçamento." class="floating-whatsapp" target="_blank" aria-label="WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <button class="scroll-top" id="scrollTopBtn" aria-label="Voltar ao topo">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script>
+    const revealElements = document.querySelectorAll(".reveal");
+    const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+    function revealOnScroll() {
+      const trigger = window.innerHeight * 0.88;
+
+      revealElements.forEach((element) => {
+        const top = element.getBoundingClientRect().top;
+
+        if (top < trigger) {
+          element.classList.add("show");
+        }
+      });
+
+      if (window.scrollY > 250) {
+        scrollTopBtn.classList.add("show");
+      } else {
+        scrollTopBtn.classList.remove("show");
+      }
+    }
+
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll();
+
+    scrollTopBtn.addEventListener("click", function () {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  </script>
+
+</body>
+</html>

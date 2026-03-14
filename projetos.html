@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projetos | Gustavo Henrique</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-1: #020617;
+      --bg-2: #0f172a;
+      --bg-3: #111827;
+      --card: rgba(255, 255, 255, 0.05);
+      --border: rgba(255, 255, 255, 0.10);
+      --text: #ffffff;
+      --text-soft: #cbd5e1;
+      --muted: #94a3b8;
+      --primary: #00e5ff;
+      --secondary: #7c3aed;
+      --shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(0, 229, 255, 0.12), transparent 22%),
+        radial-gradient(circle at top right, rgba(124, 58, 237, 0.16), transparent 30%),
+        linear-gradient(135deg, var(--bg-1), var(--bg-2), var(--bg-3));
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .header {
+      width: 100%;
+      padding: 20px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.38);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--primary);
+      text-shadow: 0 0 18px rgba(0, 229, 255, 0.20);
+    }
+
+    .logo img {
+      width: 65px;
+      height: 65px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 6px rgba(0, 229, 255, 0.35));
+      flex-shrink: 0;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .logo-name {
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      color: var(--primary);
+    }
+
+    .logo-role {
+      font-size: 11px;
+      font-weight: 700;
+      color: #c4b5fd;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .nav {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      color: var(--text-soft);
+      font-weight: 600;
+      position: relative;
+      transition: 0.3s ease;
+      padding: 4px 0;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      color: var(--primary);
+    }
+
+    .nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transition: 0.3s ease;
+    }
+
+    .nav a:hover::after,
+    .nav a.active::after {
+      width: 100%;
+    }
+
+    .projects-page {
+      padding: 90px 8%;
+    }
+
+    .hero {
+      max-width: 920px;
+      margin: 0 auto 60px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 229, 255, 0.28);
+      background: rgba(0, 229, 255, 0.08);
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 54px;
+      line-height: 1.1;
+      margin-bottom: 18px;
+      background: linear-gradient(90deg, #ffffff, #d8b4fe, #67e8f9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      color: var(--text-soft);
+      font-size: 18px;
+      line-height: 1.8;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .featured-project {
+      max-width: 1250px;
+      margin: 0 auto 34px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: 0.35s ease;
+    }
+
+    .featured-project:hover {
+      transform: translateY(-8px);
+      border-color: rgba(0, 229, 255, 0.35);
+      box-shadow: 0 18px 40px rgba(0, 229, 255, 0.14);
+    }
+
+    .featured-image {
+      position: relative;
+      min-height: 420px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0b1220, #111827);
+    }
+
+    .featured-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.5s ease;
+    }
+
+    .featured-project:hover .featured-image img {
+      transform: scale(1.06);
+    }
+
+    .image-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(2, 6, 23, 0.88), transparent 60%);
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-end;
+      padding: 22px;
+    }
+
+    .project-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(0, 229, 255, 0.14);
+      border: 1px solid rgba(0, 229, 255, 0.28);
+      color: #67e8f9;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .featured-content {
+      padding: 34px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .featured-content h2 {
+      font-size: 36px;
+      margin-bottom: 16px;
+    }
+
+    .featured-content p {
+      color: var(--text-soft);
+      line-height: 1.9;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .project-points {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .project-points div {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #dbe7f3;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .project-points i {
+      color: var(--primary);
+      font-size: 14px;
+    }
+
+    .tech-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .tech-list span {
+      padding: 9px 13px;
+      border-radius: 999px;
+      background: rgba(124, 58, 237, 0.16);
+      border: 1px solid rgba(124, 58, 237, 0.28);
+      color: #ddd6fe;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .project-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 22px;
+      border-radius: 14px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: 0.3s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      color: #fff;
+      box-shadow: 0 12px 28px rgba(0, 229, 255, 0.18);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 30px rgba(0, 229, 255, 0.14);
+    }
+
+    .section-title {
+      max-width: 1200px;
+      margin: 0 auto 28px;
+    }
+
+    .section-title h2 {
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: var(--text-soft);
+      line-height: 1.8;
+      font-size: 16px;
+      max-width: 760px;
+    }
+
+    .projects-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      overflow: hidden;
+      transition: 0.35s ease;
+      box-shadow: var(--shadow);
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(0, 229, 255, 0.35);
+      box-shadow: 0 18px 40px rgba(0, 229, 255, 0.12);
+    }
+
+    .card-image {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0b1220, #111827);
+    }
+
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.5s ease;
+    }
+
+    .project-card:hover .card-image img {
+      transform: scale(1.06);
+    }
+
+    .card-badge {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(0, 229, 255, 0.14);
+      border: 1px solid rgba(0, 229, 255, 0.28);
+      color: #67e8f9;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .card-content {
+      padding: 24px;
+    }
+
+    .card-content h3 {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .card-content p {
+      color: var(--text-soft);
+      line-height: 1.8;
+      font-size: 15px;
+      margin-bottom: 18px;
+      min-height: 108px;
+    }
+
+    .mini-techs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-bottom: 20px;
+    }
+
+    .mini-techs span {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #dbe7f3;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .card-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .card-btn {
+      flex: 1;
+      min-width: 120px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      text-align: center;
+      font-weight: 700;
+      transition: 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .card-btn.primary {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      color: #fff;
+    }
+
+    .card-btn.secondary {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .card-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px rgba(0, 229, 255, 0.12);
+    }
+
+    .extra-box {
+      max-width: 1200px;
+      margin: 34px auto 0;
+      padding: 30px;
+      border-radius: 26px;
+      background: linear-gradient(135deg, rgba(0, 229, 255, 0.08), rgba(124, 58, 237, 0.10));
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow);
+    }
+
+    .extra-box h2 {
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+
+    .extra-box p {
+      color: var(--text-soft);
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    .footer-simple {
+      position: relative;
+      padding: 30px;
+      text-align: center;
+      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin-top: 60px;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .footer-simple p {
+      font-size: 14px;
+      letter-spacing: 0.5px;
+    }
+
+    .top-btn {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      transition: 0.3s ease;
+      box-shadow: 0 10px 24px rgba(0, 229, 255, 0.18);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px);
+      z-index: 1000;
+    }
+
+    .top-btn.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .top-btn:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 12px 28px rgba(0, 229, 255, 0.30);
+    }
+
+    .floating-whatsapp {
+      position: fixed;
+      left: 24px;
+      bottom: 24px;
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      background: #25d366;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.28);
+      z-index: 2000;
+      transition: 0.3s ease;
+    }
+
+    .floating-whatsapp:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 14px 30px rgba(37, 211, 102, 0.35);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: 0.8s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1080px) {
+      .featured-project {
+        grid-template-columns: 1fr;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        flex-direction: column;
+        gap: 14px;
+        padding-left: 5%;
+        padding-right: 5%;
+      }
+
+      .projects-page {
+        padding-left: 5%;
+        padding-right: 5%;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .featured-content h2,
+      .section-title h2,
+      .extra-box h2 {
+        font-size: 28px;
+      }
+
+      .floating-whatsapp {
+        left: 15px;
+        bottom: 15px;
+        width: 56px;
+        height: 56px;
+        font-size: 27px;
+      }
+
+      .top-btn {
+        right: 15px;
+        bottom: 15px;
+        width: 48px;
+        height: 48px;
+        font-size: 18px;
+      }
+
+      .logo img {
+        width: 54px;
+        height: 54px;
+      }
+
+      .logo-name {
+        font-size: 21px;
+      }
+
+      .logo-role {
+        font-size: 10px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .featured-content,
+      .card-content,
+      .extra-box {
+        padding: 22px;
+      }
+
+      .project-buttons,
+      .card-buttons {
+        flex-direction: column;
+      }
+
+      .btn,
+      .card-btn {
+        width: 100%;
+      }
+
+      .logo img {
+        width: 46px;
+        height: 46px;
+      }
+
+      .logo-name {
+        font-size: 18px;
+      }
+
+      .logo-role {
+        font-size: 9px;
+        letter-spacing: 1.4px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="logo">
+      <img src="imagens/foto2.png" alt="Logo Gustavo Henrique">
+      <div class="logo-text">
+        <span class="logo-name">Gustavo Henrique</span>
+        <span class="logo-role">Full Stack Developer</span>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="projetos.html" class="active">Projetos</a>
+      <a href="contato.html">Contato</a>
+      <a href="servicos.html">Serviços</a>
+    </nav>
+  </header>
+
+  <main class="projects-page">
+
+    <section class="hero reveal">
+      <div class="badge">
+        <i class="fa-solid fa-folder-open"></i>
+        PORTFÓLIO FULL STACK WEB
+      </div>
+
+      <h1>Projetos que representam minha evolução</h1>
+
+      <p>
+        Aqui estão projetos que reforçam minha atuação como <strong>Full Stack Web Developer</strong>,
+        unindo <strong>front-end</strong>, <strong>back-end</strong>, <strong>APIs</strong> e estruturação de soluções web
+        com visual profissional, organização e foco em evolução técnica.
+      </p>
+    </section>
+
+    <section class="featured-project reveal">
+      <div class="featured-image">
+        <img src="imagens/foto5.png" alt="Sistema Controle de Estoque">
+
+        <div class="image-overlay">
+          <span class="project-label">
+            <i class="fa-solid fa-star"></i>
+            Projeto Full Stack em desenvolvimento
+          </span>
+        </div>
+      </div>
+
+      <div class="featured-content">
+        <h2>Sistema Controle de Estoque</h2>
+
+        <p>
+          Projeto Full Stack Web em desenvolvimento para organização de produtos, controle de entradas e saídas
+          e visualização mais clara das informações. A proposta é unir interface web, lógica de sistema,
+          API e persistência de dados em uma estrutura mais completa.
+        </p>
+
+        <div class="project-points">
+          <div>
+            <i class="fa-solid fa-check"></i>
+            Cadastro e gerenciamento de produtos
+          </div>
+
+          <div>
+            <i class="fa-solid fa-check"></i>
+            Controle de movimentações e organização de dados
+          </div>
+
+          <div>
+            <i class="fa-solid fa-check"></i>
+            Estrutura com Java, Spring Boot e banco H2
+          </div>
+
+          <div>
+            <i class="fa-solid fa-check"></i>
+            Interface web integrada com foco em evolução do projeto
+          </div>
+        </div>
+
+        <div class="tech-list">
+          <span>Java</span>
+          <span>Spring Boot</span>
+          <span>H2 Database</span>
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JavaScript</span>
+        </div>
+
+        
+
+          <a href="https://github.com/GustavoTeixeiraSilva/sistema-controle-estoque" class="btn btn-secondary" target="_blank">
+  <i class="fa-brands fa-github"></i>
+  Ver no GitHub
+</a>
+            
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-title reveal">
+      <h2>Mais projetos</h2>
+      <p>
+        Outros projetos que reforçam meu desenvolvimento em interfaces web, APIs, organização de código
+        e construção de aplicações com foco em clareza, boa estrutura e apresentação profissional.
+      </p>
+    </section>
+
+    <section class="projects-grid">
+
+      <article class="project-card reveal">
+        <div class="card-image">
+          <img src="imagens/foto3.png" alt="API REST Cadastro de Alunos">
+          <span class="card-badge">Back-End / API</span>
+        </div>
+
+        <div class="card-content">
+          <h3>API REST Cadastro de Alunos</h3>
+
+          <p>
+            API criada para cadastro, listagem, atualização e remoção de alunos, com foco em organização de rotas,
+            lógica limpa, estrutura back-end e comunicação entre sistema e dados.
+          </p>
+
+          <div class="mini-techs">
+            <span>Java</span>
+            <span>Spring Boot</span>
+            <span>API REST</span>
+            <span>H2</span>
+          </div>
+
+          
+
+            <a href="https://github.com/GustavoTeixeiraSilva/crud-alunos-springboot/" class="btn btn-secondary" target="_blank">
+  <i class="fa-brands fa-github"></i>
+  Ver no GitHub
+</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card reveal">
+        <div class="card-image">
+          <img src="imagens/foto4.png" alt="Site Pessoal">
+          <span class="card-badge">Front-End / Portfólio</span>
+        </div>
+
+        <div class="card-content">
+          <h3>Site Pessoal</h3>
+
+          <p>
+            Portfólio criado para apresentar projetos, habilidades e formas de contato com identidade visual moderna,
+            estrutura responsiva e posicionamento profissional voltado para Full Stack Web.
+          </p>
+
+          <div class="mini-techs">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>Responsivo</span>
+          </div>
+
+        
+
+           <a href="https://github.com/GustavoTeixeiraSilva" class="btn btn-secondary" target="_blank">
+  <i class="fa-brands fa-github"></i>
+  Ver no GitHub
+</a>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <section class="extra-box reveal">
+      <h2>Mais que código: estrutura, lógica e apresentação</h2>
+      <p>
+        Meu objetivo não é apenas desenvolver telas ou funcionalidades isoladas. Busco construir projetos web
+        que transmitam profissionalismo, tenham boa organização técnica e representem minha evolução como
+        Full Stack Web Developer.
+      </p>
+    </section>
+
+  </main>
+
+  <footer class="footer-simple">
+    <p>© 2026 Gustavo Henrique — Todos os direitos reservados.</p>
+  </footer>
+
+  <button class="top-btn" id="topBtn" aria-label="Voltar ao topo">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <a href="https://wa.me/5531986170870?text=Olá%20Gustavo,%20gostaria%20de%20fazer%20um%20orçamento."
+     class="floating-whatsapp"
+     target="_blank"
+     aria-label="WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <script>
+    const revealElements = document.querySelectorAll(".reveal");
+    const topBtn = document.getElementById("topBtn");
+
+    function revealOnScroll() {
+      const trigger = window.innerHeight * 0.88;
+
+      revealElements.forEach((element) => {
+        const top = element.getBoundingClientRect().top;
+
+        if (top < trigger) {
+          element.classList.add("show");
+        }
+      });
+
+      if (window.scrollY > 250) {
+        topBtn.classList.add("show");
+      } else {
+        topBtn.classList.remove("show");
+      }
+    }
+
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+
+    topBtn.addEventListener("click", scrollToTop);
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll();
+  </script>
+
+</body>
+</html>
