@@ -32,8 +32,6 @@
       --whatsapp: #25d366;
       --linkedin: #0a66c2;
       --github: #e5e7eb;
-      --workana: #8b5cf6;
-      --frellas: #06b6d4;
       --shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
     }
 
@@ -183,73 +181,11 @@
       margin: 0 auto;
     }
 
-    .cta-main {
-      max-width: 1200px;
-      margin: 0 auto 32px;
-      padding: 34px;
-      border-radius: 30px;
-      background: linear-gradient(135deg, rgba(37, 211, 102, 0.12), rgba(124, 58, 237, 0.12));
-      border: 1px solid rgba(255, 255, 255, 0.10);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(14px);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 28px;
-    }
-
-    .cta-text h2 {
-      font-size: 34px;
-      margin-bottom: 12px;
-    }
-
-    .cta-text p {
-      color: var(--text-soft);
-      line-height: 1.8;
-      max-width: 760px;
-      font-size: 16px;
-    }
-
-    .cta-buttons {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      flex-shrink: 0;
-    }
-
-    .btn {
-      padding: 15px 22px;
-      border-radius: 14px;
-      font-weight: 700;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      transition: 0.3s ease;
-    }
-
-    .btn-whatsapp {
-      background: linear-gradient(90deg, #25d366, #16a34a);
-      color: #fff;
-      box-shadow: 0 12px 28px rgba(37, 211, 102, 0.18);
-    }
-
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border);
-      color: var(--text);
-    }
-
-    .btn:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 14px 30px rgba(0, 229, 255, 0.12);
-    }
-
     .contact-grid {
       max-width: 1200px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 24px;
     }
 
@@ -390,50 +326,6 @@
       color: #e2e8f0;
     }
 
-    .workana-card {
-      border-color: rgba(139, 92, 246, 0.22);
-    }
-
-    .workana-card::before {
-      background: linear-gradient(135deg, rgba(139, 92, 246, 0.10), rgba(168, 85, 247, 0.10));
-    }
-
-    .workana-card:hover {
-      border-color: rgba(139, 92, 246, 0.45);
-      box-shadow: 0 18px 40px rgba(139, 92, 246, 0.14);
-    }
-
-    .workana-card .icon-box {
-      background: linear-gradient(135deg, rgba(139, 92, 246, 0.22), rgba(168, 85, 247, 0.18));
-      color: #e9d5ff;
-    }
-
-    .workana-card .contact-action {
-      color: #d8b4fe;
-    }
-
-    .frellas-card {
-      border-color: rgba(6, 182, 212, 0.22);
-    }
-
-    .frellas-card::before {
-      background: linear-gradient(135deg, rgba(6, 182, 212, 0.10), rgba(124, 58, 237, 0.10));
-    }
-
-    .frellas-card:hover {
-      border-color: rgba(6, 182, 212, 0.45);
-      box-shadow: 0 18px 40px rgba(6, 182, 212, 0.14);
-    }
-
-    .frellas-card .icon-box {
-      background: linear-gradient(135deg, rgba(6, 182, 212, 0.22), rgba(124, 58, 237, 0.18));
-      color: #bae6fd;
-    }
-
-    .frellas-card .contact-action {
-      color: #67e8f9;
-    }
-
     .email-card {
       border-color: rgba(0, 229, 255, 0.20);
     }
@@ -563,11 +455,6 @@
     }
 
     @media (max-width: 1080px) {
-      .cta-main {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
       .contact-grid {
         grid-template-columns: 1fr 1fr;
       }
@@ -591,12 +478,10 @@
       }
 
       .hero p,
-      .cta-text p,
       .extra-info p {
         font-size: 16px;
       }
 
-      .cta-text h2,
       .extra-info h2 {
         font-size: 28px;
       }
@@ -627,18 +512,8 @@
         font-size: 32px;
       }
 
-      .cta-main,
       .extra-info {
         padding: 24px 20px;
-      }
-
-      .cta-buttons {
-        flex-direction: column;
-        width: 100%;
-      }
-
-      .btn {
-        width: 100%;
       }
 
       .logo {
@@ -674,7 +549,6 @@
       <a href="sobre.html">Sobre</a>
       <a href="projetos.html">Projetos</a>
       <a href="contato.html" class="active">Contato</a>
-      <a href="servicos.html">Serviços</a>
     </nav>
   </header>
 
@@ -695,31 +569,9 @@
       </p>
     </section>
 
-    <section class="cta-main reveal">
-      <div class="cta-text">
-        <h2>Atendimento rápido para orçamento</h2>
-        <p>
-          Clique no botão do WhatsApp para abrir uma conversa comigo com uma mensagem pronta.
-          Assim consigo entender melhor sua ideia, seu objetivo e como transformar isso em uma solução web profissional.
-        </p>
-      </div>
-
-      <div class="cta-buttons">
-        <a href="https://wa.me/5531986170870?text=Ol%C3%A1%20Gustavo%2C%20gostaria%20de%20fazer%20um%20or%C3%A7amento." target="_blank" class="btn btn-whatsapp">
-          <i class="fa-brands fa-whatsapp"></i>
-          Pedir orçamento no WhatsApp
-        </a>
-
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=gustavohenrique0414@gmail.com&su=Orçamento%20de%20projeto&body=Olá%20Gustavo,%20gostaria%20de%20fazer%20um%20orçamento." target="_blank" class="btn btn-secondary">
-  <i class="fa-solid fa-envelope"></i>
-  Enviar e-mail
-</a>
-      </div>
-    </section>
-
     <section class="contact-grid">
 
-      <a href="https://wa.me/5531986170870?text=Ol%C3%A1%20Gustavo%2C%20gostaria%20de%20fazer%20um%20or%C3%A7amento." target="_blank" class="contact-card whatsapp-card reveal">
+      <a href="https://wa.me/5531986170870?text=Ol%C3%A1%20Gustavo%2C%20vim%20pelo%20seu%20portf%C3%B3lio." target="_blank" rel="noopener noreferrer" class="contact-card whatsapp-card reveal">
         <div class="contact-top">
           <div class="icon-box">
             <i class="fa-brands fa-whatsapp"></i>
@@ -727,7 +579,7 @@
 
           <h3>WhatsApp</h3>
           <p>
-            Canal principal para orçamento, dúvidas rápidas e primeiro contato sobre sites, sistemas web e soluções Full Stack.
+            Fale comigo diretamente para tirar dúvidas e conversar sobre desenvolvimento web.
           </p>
         </div>
 
@@ -739,7 +591,7 @@
         </div>
       </a>
 
-      <a href="https://www.linkedin.com/in/gustavoteixeiratech/" target="_blank" class="contact-card linkedin-card reveal">
+      <a href="https://www.linkedin.com/in/gustavoteixeiratech/" target="_blank" rel="noopener noreferrer" class="contact-card linkedin-card reveal">
         <div class="contact-top">
           <div class="icon-box">
             <i class="fa-brands fa-linkedin-in"></i>
@@ -759,7 +611,7 @@
         </div>
       </a>
 
-      <a href="https://github.com/GustavoTeixeiraSilva" target="_blank" class="contact-card github-card reveal">
+      <a href="https://github.com/GustavoTeixeiraSilva" target="_blank" rel="noopener noreferrer" class="contact-card github-card reveal">
         <div class="contact-top">
           <div class="icon-box">
             <i class="fa-brands fa-github"></i>
@@ -779,47 +631,7 @@
         </div>
       </a>
 
-      <a href="http://workana.com/freelancer/3d5418a25dabf62c7635176735c10720" target="_blank" class="contact-card workana-card reveal">
-        <div class="contact-top">
-          <div class="icon-box">
-            <i class="fa-solid fa-briefcase"></i>
-          </div>
-
-          <h3>Workana</h3>
-          <p>
-            Acesse meu perfil freelancer para acompanhar minha apresentação profissional e oportunidades relacionadas a projetos web.
-          </p>
-        </div>
-
-        <div class="contact-bottom">
-          <span class="contact-action">
-            Abrir perfil Workana
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-          </span>
-        </div>
-      </a>
-
-      <a href="https://www.99freelas.com.br/user/GustavoDevOrbit" target="_blank" class="contact-card frellas-card reveal">
-        <div class="contact-top">
-          <div class="icon-box">
-            <i class="fa-solid fa-code"></i>
-          </div>
-
-          <h3>Frellas99</h3>
-          <p>
-            Acesse meu perfil freelancer para conhecer melhor meus serviços, minha apresentação e minha atuação em projetos digitais.
-          </p>
-        </div>
-
-        <div class="contact-bottom">
-          <span class="contact-action">
-            Abrir perfil Frellas99
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-          </span>
-        </div>
-      </a>
-
-      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=gustavohenrique0414@gmail.com&su=Orçamento%20de%20projeto&body=Olá%20Gustavo,%20gostaria%20de%20fazer%20um%20orçamento." target="_blank" class="contact-card email-card reveal">
+      <a href="mailto:gustavohenrique0414@gmail.com" class="contact-card email-card reveal">
         <div class="contact-top">
           <div class="icon-box">
             <i class="fa-solid fa-envelope"></i>
@@ -827,7 +639,7 @@
 
           <h3>E-mail</h3>
           <p>
-            Canal ideal para contatos formais, propostas detalhadas, parcerias, oportunidades e envio de informações mais completas.
+            Envie uma mensagem para contato profissional, parcerias ou oportunidades.
           </p>
         </div>
 
@@ -844,8 +656,7 @@
     <section class="extra-info reveal">
       <h2>Contato simples, rápido e profissional</h2>
       <p>
-        Esta área foi pensada para facilitar seu atendimento. O WhatsApp funciona como canal principal para orçamento,
-        enquanto LinkedIn, GitHub, Workana, Frellas99 e e-mail fortalecem minha presença profissional e digital como
+        Entre em contato pelo WhatsApp ou e-mail, conheça minha trajetória no LinkedIn e confira meus projetos no GitHub.
         <strong>Full Stack Web Developer</strong>.
       </p>
     </section>
@@ -856,7 +667,7 @@
     <p>© 2026 Gustavo Henrique — Todos os direitos reservados.</p>
   </footer>
 
-  <a href="https://wa.me/5531986170870?text=Olá%20Gustavo,%20gostaria%20de%20fazer%20um%20orçamento." class="floating-whatsapp" target="_blank" aria-label="WhatsApp">
+  <a href="https://wa.me/5531986170870?text=Ol%C3%A1%20Gustavo%2C%20vim%20pelo%20seu%20portf%C3%B3lio." class="floating-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>
   </a>
 
